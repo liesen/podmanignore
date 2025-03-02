@@ -34,3 +34,16 @@ jobs:
 
     - name: Build with Podman
       run: podman build -t podmanignore:podman -f Containerfile .
+
+  build_with_podman_explicit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+        
+    - name: Show Podman version
+      run: podman --version
+
+    - name: Build with Podman
+      run: podman build -t podmanignore:podman -f Containerfile --ignorefile .dockerignore-explicit .
