@@ -22,6 +22,21 @@ jobs:
     - name: Build with Docker
       run: docker build -t podmanignore:docker -f Containerfile .
 
+  build_with_docker_legacy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+        
+    - name: Show Docker version
+      run: docker --version
+
+    - name: Build with Docker
+      run: docker build -t podmanignore:docker -f Containerfile .
+      env:
+        DOCKER_BUILDKIT: 0
+
   build_with_podman:
     runs-on: ubuntu-latest
 
