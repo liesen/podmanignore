@@ -1,5 +1,13 @@
 name: Build Containerfile
 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build_with_docker:
     runs-on: ubuntu-latest
